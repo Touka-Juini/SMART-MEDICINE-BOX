@@ -1,89 +1,102 @@
 # Smart Medicine Box
 
-**An embedded systems and mobile application project for medication reminders and family notifications.**
+An academic embedded systems and mobile application project developed at **ISAMM in 2024**, designed to help patients follow medication schedules and notify a designated family member when a dose may have been missed.
 
-An academic engineering project developed at ISAMM in 2024, combining a Raspberry Pi, electronic sensors, a mobile application, and Firebase integration.
+The prototype combines a Raspberry Pi, electronic sensors, a medication reminder mechanism, a mobile application, and Firebase services.
 
-The system is designed to help patients follow medication schedules through audible reminders and alerts to a designated family member when a scheduled dose is not taken as expected.
-
-## Project Highlights
+## Key Features
 
 - **Medication scheduling:** Configure medication times through the mobile application.
-- **Audible reminders:** Use a buzzer to remind patients when medication is due.
-- **Family notifications:** Alert a designated responsible family member when the system detects a missed dose, according to the implemented logic.
-- **Hardware integration:** Combine a Raspberry Pi with a servo motor, RFID sensor, weight sensor, and LCD.
-- **Cloud integration:** Use Firebase for application data management and communication.
+- **Audible reminders:** Use a buzzer to remind the patient when medication is due.
+- **Access authorization:** Use an RFID sensor to check whether access is authorized.
+- **Medication-taking detection:** Monitor weight changes to help determine whether medication may have been taken.
+- **Family notifications:** Send push notifications to a designated family member through Firebase Cloud Messaging (FCM).
+- **Hardware–software integration:** Connect a Raspberry Pi with sensors, a servo motor, an LCD, and the mobile application.
 
 ## System Architecture
 
-The following diagram illustrates the intended high-level system structure. Confirm the actual communication paths against your implementation.
+The diagram below illustrates the main system components and their relationships.
 
 ```mermaid
 flowchart TB
     APP["Mobile Application<br/>Medication Scheduling"]
-    FB[("Firebase<br/>Data Management")]
+    FB[("Firebase<br/>Data Storage")]
     PI["Raspberry Pi<br/>Python Control Logic"]
 
     APP <--> FB
-    FB <--> PI
+    PI <--> FB
+
+    RFID["RFID Sensor<br/>Access Authorization"]
+    WEIGHT["Weight Sensor<br/>Weight Change Detection"]
+
+    PI <--> RFID
+    PI <--> WEIGHT
 
     PI --> SERVO["Servo Motor"]
-    PI <--> RFID["RFID Sensor"]
-    PI <--> WEIGHT["Weight Sensor"]
     PI --> LCD["LCD Display"]
-    PI --> BUZZER["Audible Reminder"]
+    PI --> BUZZER["Buzzer<br/>Audible Reminder"]
 
-    FB --> ALERT["Family Member Alert"]
+    FB --> FCM["Firebase Cloud Messaging"]
+    FCM --> FAMILY["Responsible Family Member<br/>Push Notification"]
 ```
 
-## Hardware & Software
+**Communication overview**
 
-| Category | Components |
+- The mobile application and Raspberry Pi communicate with Firebase.
+- Python running on the Raspberry Pi handles the hardware-control logic.
+- The RFID sensor checks access authorization, while the weight sensor detects changes that may indicate medication removal.
+- The buzzer provides an audible reminder, and the LCD provides on-device feedback.
+- Firebase Cloud Messaging delivers push notifications to the responsible family member.
+
+*Note: This is a high-level representation. The exact database service and the detailed trigger used to send notifications should be confirmed against the original implementation.*
+
+## Technologies & Components
+
+| Category | Technology or component |
 |---|---|
 | Controller | Raspberry Pi |
-| Actuation | Servo motor |
-| Sensors | RFID sensor, weight sensor |
-| User feedback | LCD, buzzer |
 | Programming language | Python |
-| Backend integration | Firebase |
-| Mobile interface | Medication scheduling and notifications |
+| Cloud integration | Firebase |
+| Push notifications | Firebase Cloud Messaging (FCM) |
+| Sensors | RFID sensor, weight sensor |
+| Actuation | Servo motor |
+| User feedback | LCD, buzzer |
+| User interface | Mobile application |
 
 ## My Contribution
-
-My work focused on the software and integration aspects of the project.
 
 - Developed the mobile application.
 - Worked on Firebase integration and data management.
 - Contributed to software development and testing.
 - Prepared parts of the technical documentation.
 
-## Demonstration & Documentation
+## Project Resources
 
-- **Application demo:** [Watch the demonstration](YOUR_VIDEO_LINK)
 - **Technical report:** [Read the project report](docs/Smart_Pill_Box_Report.pdf)
+- **Application demonstration:** [Watch the demonstration](YOUR_VIDEO_LINK)
 - **Source code:** Browse the files in this repository.
 
-## Current Status & Future Improvements
+Replace `YOUR_VIDEO_LINK` with the actual shareable video URL. Make sure the report filename and capitalization match the file in the `docs` folder.
 
-The prototype reached the implementation stage documented during the university project in 2024. Further development was outside the scope of the available project work.
+## Future Improvements
 
-Potential improvements include:
+Potential areas for further development include:
 
-- Improving the mobile interface and accessibility.
-- Testing dispensing reliability and sensor accuracy.
-- Strengthening notification reliability and failure handling.
-- Improving system security and access control.
-- Expanding integration and end-to-end testing.
+- Improving the accuracy of medication-taking detection.
+- Strengthening notification reliability and error handling.
+- Improving the mobile interface's accessibility.
+- Enhancing security and access control.
+- Expanding end-to-end testing across the hardware, mobile app, and cloud services.
 
-These improvements are proposed future work, not features claimed to be completed.
+These are possible improvements, not features claimed to be completed in the original project.
 
 ## Project Information
 
-- **Institution:** ISAMM
+- **Institution:** ISAMM, Tunisia
 - **Year:** 2024
-- **Type:** Academic engineering project
+- **Project type:** Academic engineering project
 - **Team members:** Touka Juini, Yosr Laaouti, Farah Htira
 
----
+**Disclaimer:** This project was developed as an academic prototype and is not a certified medical device.
 
-*Academic prototype for demonstrating embedded systems, mobile application development, and hardware–software integration. Not a certified medical device.*
+**Areas of focus:** Embedded Systems · IoT · Python · Mobile Application Development · Firebase · Hardware–Software Integration
