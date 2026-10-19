@@ -73,7 +73,7 @@ flowchart TB
 ## Project Resources
 
 - **Technical report:** [Read the project report](docs/Smart_Pill_Box_Report.pdf)
-- **Application demonstration:** [Watch the demonstration](YOUR_VIDEO_LINK)
+- **Application demonstration:** [Watch the demonstration](# System Demo & Logs Demonstration notes and video references for the Smart Pill Box system)
 - **Source code:** Browse the files in this repository.
 
 Replace `YOUR_VIDEO_LINK` with the actual shareable video URL. Make sure the report filename and capitalization match the file in the `docs` folder.
