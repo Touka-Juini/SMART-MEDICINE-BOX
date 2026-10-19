@@ -48,8 +48,6 @@ flowchart TB
 - The buzzer provides an audible reminder, and the LCD provides on-device feedback.
 - Firebase Cloud Messaging delivers push notifications to the responsible family member.
 
-*Note: This is a high-level representation. The exact database service and the detailed trigger used to send notifications should be confirmed against the original implementation.*
-
 ## Technologies & Components
 
 | Category | Technology or component |
@@ -76,7 +74,6 @@ flowchart TB
 - **Application demonstration:** [Watch the demonstration](https://youtube.com/shorts/s_f5CM0mSGI?feature=share)
 - **Source code:** Browse the files in this repository.
 
-Replace `YOUR_VIDEO_LINK` with the actual shareable video URL. Make sure the report filename and capitalization match the file in the `docs` folder.
 
 ## Future Improvements
 
@@ -87,8 +84,6 @@ Potential areas for further development include:
 - Improving the mobile interface's accessibility.
 - Enhancing security and access control.
 - Expanding end-to-end testing across the hardware, mobile app, and cloud services.
-
-These are possible improvements, not features claimed to be completed in the original project.
 
 ## Project Information
 
