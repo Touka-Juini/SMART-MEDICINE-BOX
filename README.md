@@ -1,50 +1,89 @@
-# SMART-MEDICINE-BOX
+# Smart Medicine Box
 
-An academic engineering project exploring a smart pill box that combines hardware control, a mobile application, and Firebase integration.
+**An embedded systems and mobile application project for medication reminders and family notifications.**
 
-## Overview
+An academic engineering project developed at ISAMM in 2024, combining a Raspberry Pi, electronic sensors, a mobile application, and Firebase integration.
 
-The project aims to support medication organization and reminders through an integrated hardware and software system.
+The system is designed to help patients follow medication schedules through audible reminders and alerts to a designated family member when a scheduled dose is not taken as expected.
 
-## Key Components
+## Project Highlights
 
-- **Hardware:** [Insert the actual microcontroller and components used]
-- **Actuation:** Servo motor control
-- **Display:** LCD interface
-- **Connectivity:** Firebase integration
-- **Mobile application:** [Describe the verified functions]
+- **Medication scheduling:** Configure medication times through the mobile application.
+- **Audible reminders:** Use a buzzer to remind patients when medication is due.
+- **Family notifications:** Alert a designated responsible family member when the system detects a missed dose, according to the implemented logic.
+- **Hardware integration:** Combine a Raspberry Pi with a servo motor, RFID sensor, weight sensor, and LCD.
+- **Cloud integration:** Use Firebase for application data management and communication.
 
 ## System Architecture
 
-Add a diagram showing the relationship between the mobile application, Firebase, the controller, LCD, and servo motor, where applicable.
+The following diagram illustrates the intended high-level system structure. Confirm the actual communication paths against your implementation.
 
-## My Contributions
+```mermaid
+flowchart TB
+    APP["Mobile Application<br/>Medication Scheduling"]
+    FB[("Firebase<br/>Data Management")]
+    PI["Raspberry Pi<br/>Python Control Logic"]
 
-- Developed or tested servo motor control code.
-- Worked on LCD display functionality.
-- Configured or tested Firebase connectivity.
-- [Add your actual mobile app, integration, design, or testing responsibilities.]
+    APP <--> FB
+    FB <--> PI
 
-## Demonstration
+    PI --> SERVO["Servo Motor"]
+    PI <--> RFID["RFID Sensor"]
+    PI <--> WEIGHT["Weight Sensor"]
+    PI --> LCD["LCD Display"]
+    PI --> BUZZER["Audible Reminder"]
 
-- [Watch the mobile app demonstration](YOUR_VIDEO_LINK)
-- [View the full project report](docs/Smart_Pill_Box_Report.pdf)
+    FB --> ALERT["Family Member Alert"]
+```
 
-## Repository Contents
+## Hardware & Software
 
-- `firmware/` — hardware-related source code
-- `app/` — mobile application source or documentation
-- `docs/` — report and system documentation
-- `media/` — selected project photographs and screenshots
+| Category | Components |
+|---|---|
+| Controller | Raspberry Pi |
+| Actuation | Servo motor |
+| Sensors | RFID sensor, weight sensor |
+| User feedback | LCD, buzzer |
+| Programming language | Python |
+| Backend integration | Firebase |
+| Mobile interface | Medication scheduling and notifications |
 
-## Project Status and Limitations
+## My Contribution
 
-Describe what was successfully implemented, what was tested, and what remains incomplete.
+My work focused on the software and integration aspects of the project.
 
-## Technologies
+- Developed the mobile application.
+- Worked on Firebase integration and data management.
+- Contributed to software development and testing.
+- Prepared parts of the technical documentation.
 
-[List only the technologies and tools actually used.]
+## Demonstration & Documentation
 
-## Academic Project
+- **Application demo:** [Watch the demonstration](YOUR_VIDEO_LINK)
+- **Technical report:** [Read the project report](docs/Smart_Pill_Box_Report.pdf)
+- **Source code:** Browse the files in this repository.
 
-[Institution, project year, and team members, where appropriate.]
+## Current Status & Future Improvements
+
+The prototype reached the implementation stage documented during the university project in 2024. Further development was outside the scope of the available project work.
+
+Potential improvements include:
+
+- Improving the mobile interface and accessibility.
+- Testing dispensing reliability and sensor accuracy.
+- Strengthening notification reliability and failure handling.
+- Improving system security and access control.
+- Expanding integration and end-to-end testing.
+
+These improvements are proposed future work, not features claimed to be completed.
+
+## Project Information
+
+- **Institution:** ISAMM
+- **Year:** 2024
+- **Type:** Academic engineering project
+- **Team members:** Touka Juini, Yosr Laaouti, Farah Htira
+
+---
+
+*Academic prototype for demonstrating embedded systems, mobile application development, and hardware–software integration. Not a certified medical device.*
